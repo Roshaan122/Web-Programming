@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+    <style>
+        body {
+            background-color: aliceblue;
+            font-family: Helvetica, sans-serif;
+        }
+
+        .main {
+            margin-top: 40px;
+            background-color: #fff;
+            height: 900px;
+            width: 700px;
+            box-shadow: 5px 5px 5px #aaaaaa;
+            border-radius: 10px;
+        }
+
+        tr {
+            margin-bottom: 10px;
+        }
+
+        td {
+            padding-bottom: 20px;
+        }
+
+        input,
+        select {
+            width: 300px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            border: transparent;
+        }
+
+        .data {
+            margin-top: 10px;
+        }
+
+        .head {
+            padding-top: 20px;
+            display: inline-block;
+            margin-top: 30px;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        hr {
+            height: 2px;
+            width: 450px;
+            background-color: #797979;
+        }
+
+        .signin {
+            display: inline-block;
+            padding-top: 30px;
+        }
+
+        .signinbutton {
+            height: 40px;
+            width: 200px;
+            border-radius: 10px;
+            border-color: #aaaaaa;
+            background-color: aquamarine;
+            box-shadow: 2px 2px 3px #aaaaaa;
+        }
+
+        .google {
+            margin-top: 30px;
+        }
+
+        .googlee {
+            height: 40px;
+            width: 300px;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <form class="main" id="myform">
+            <div class="head"><a>SIGN-UP</a></div>
+            <br><br><br>
+            <div class="data">
+                <table>
+                    <tr>
+                        <td> <a id="name" style="float: left;margin-left: 20px;">Full Name:</a></td>
+                        <td><input type="text" placeholder="Enter Your name" required></td>
+                    </tr>
+                    <tr>
+                        <td><a id="email" style="float: left;margin-left: 20px;">Email: </a></td>
+                        <td><input type="text" placeholder="Enter Email" required></td>
+                        <td><span id="emailerror" style="color:red;"></span></td>
+                    </tr>
+                    <tr>
+                        <td><a id="user" style="float: left;margin-left: 20px;">Username:</a></td>
+                        <td><input type="text" placeholder="Enter Username" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="./task2_signin.html" style="float: right;margin-right: 20px;">Login</a>
+                            <a id="already" style="float: right;margin-right: 20px;">already have an account? </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a id="dob" style="float: left;margin-left: 20px;">Date of Birth:</a></td>
+                        <td><input id="dob" type="date" required></td>
+                        <td><span id="doberror" style="color:red;"></span></td>
+                    </tr>
+                    <tr>
+                        <td><a id="gender" style="float: left;margin-left: 20px;">Gender:</a></td>
+                        <td>
+                            <select id="Gender" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a style="float: left;margin-left: 20px;">Country:</a></td>
+                        <td><input id="country" type="text" placeholder="Enter Country" required></td>
+                    </tr>
+                    <tr>
+                        <td><a style="float: left;margin-left: 20px;">Zip Code:</a></td>
+                        <td><input id="zip" type="text" placeholder="Enter Zip Code" required></td>
+                        <td><span id="ziperror" style="color:red;"></span></td>
+                    </tr>
+                    <tr>
+                        <td><a style="float: left;margin-left: 20px;">Password:</a></td>
+                        <td><input id="pass" type="password" placeholder="Enter password" required></td>
+                        <td><span id="errorMessage" style="color:red;"></span></td>
+                    </tr>
+                    <tr>
+                        <td><a style="float: left;margin-left: 20px;">Telephone:</a></td>
+                        <td><input id="tel" type="tel" placeholder="Enter Telephone" required></td>
+                        <td><span id="phoneerror" style="color:red;"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="signin">
+                <button class="signinbutton" type="submit">
+                    <span> Sign-Up</span>
+                </button>
+            </div>
+            <br><br>
+            <hr>
+            <div class="google" id="google-login">
+                <button class="googlee">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo"
+                        height="20px" width="20px">
+                    <span>Sign-Up with Google</span>
+                </button>
+            </div>
+        </form>
+    </center>
+
+
+
+</body>
+
+</html>
