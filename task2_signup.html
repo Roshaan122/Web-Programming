@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up</title>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        .main {
+            margin-top: 100px;
+            background-color: rgb(255, 255, 255);
+            height: 600px;
+            width: 500px;
+            box-shadow: 5px 5px 5px #aaaaaa;
+            border-radius: 10px;
+        }
+
+
+
+        input {
+            width: 300px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            border: transparent;
+        }
+
+        .data {
+            margin-top: 50px;
+        }
+
+        .head {
+            padding-top: 20px;
+            display: inline-block;
+            margin-top: 30px;
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        hr {
+            height: 2px;
+            width: 450px;
+            background-color: rgb(121, 121, 121);
+        }
+
+        .signin {
+            display: inline-block;
+            padding-top: 30px;
+
+        }
+
+        .signinbutton {
+            height: 40px;
+            width: 200px;
+            border-radius: 10px;
+            border-color: #aaaaaa;
+            background-color: aquamarine;
+            box-shadow: 2px 2px 3px #aaaaaa;
+        }
+
+        .googlee {
+            margin-top: 30px;
+            height: 40px;
+            width: 300px;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="main">
+            <div class="head"><a>SIGN-UP</a></div>
+            <br><br><br>
+            <div class="data">
+                <div class="FULLNAME" style="display: inline;">
+                    <a id="name" style="float: left;margin-left: 20px;">Full Name:</a>
+                    <input type="text" placeholder="Enter Your name">
+                    <br><br>
+                    <div class="username" style="display: inline;">
+                        <a id="user" style="float: left;margin-left: 20px;">Username:</a>
+                        <input type="text" placeholder="Enter Username">
+                        <br><br>
+                        <a href="./task2_signin.html" style="float: right;margin-right: 20px;">Login</a>
+                        <a id="already" style="float: right;margin-right: 20px;">already have an account? </a>
+
+                    </div>
+                    <br><br>
+                    <div class="password" style="display: inline;">
+                        <a id="pass" style="float: left;margin-left: 20px;">password:</a>
+                        <input type="password" placeholder="Enter password">
+                        <br><br>
+
+                    </div>
+                </div>
+                <br>
+                <div class="signin">
+                    <button class="signinbutton">
+                        <span> Sign-Up</span></button>
+                </div>
+                <br><br>
+                <hr>
+                <div class="google login">
+                    <button class="googlee">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo"
+                            height="20px" width="20px">
+                        <span>Sign-Up with Google</span>
+                    </button>
+                </div>
+            </div>
+    </center>
+</body>
+
+</html>
