@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Month Days</title>
+</head>
+
+<body>
+    <script>
+        let month = prompt("Enter the name of the month (Jan, Feb, etc.)").toLocaleLowerCase();
+
+        let days = -1;
+
+        if (month == "jan" || month == "mar" || month == "may" || month == "jul" || month == "aug" || month == "oct" || month == "dec") {
+            days = 31;
+        }
+        else if (month == "apr" || month == "jun" || month == "sept" || month == "nov") {
+            days = 30;
+        }
+        else if (month == "feb") {
+            days = 29;
+        }
+        else {
+            document.write("Invalid Input");
+            document.body.style.color = "red";
+        }
+        if (days > 0) {
+            document.write(month + " has " + days + " days");
+            document.body.style.color = "red";
+        }
+    </script>
+</body>
+
+</html>
