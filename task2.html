@@ -96,11 +96,12 @@
                     <tr>
                         <td><a id="email" style="float: left;margin-left: 20px;">Email: </a></td>
                         <td><input type="text" placeholder="Enter Email" required></td>
-                        <td><span id="emailerror" style="color:red;"></span></td>
+                        <td><span id="em_error" style="color:red;font-family: Helvetica;"></span></td>
                     </tr>
                     <tr>
                         <td><a id="user" style="float: left;margin-left: 20px;">Username:</a></td>
                         <td><input type="text" placeholder="Enter Username" required></td>
+                        <td><span id="u_error" style="color:red;font-family: Helvetica;"></span></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -111,8 +112,8 @@
                     </tr>
                     <tr>
                         <td><a id="dob" style="float: left;margin-left: 20px;">Date of Birth:</a></td>
-                        <td><input id="dob" type="date" required></td>
-                        <td><span id="doberror" style="color:red;"></span></td>
+                        <td><input id="dob" type="date"></td>
+                        <td><span id="doberror" style="color:red;font-family: Helvetica;"></span></td>
                     </tr>
                     <tr>
                         <td><a id="gender" style="float: left;margin-left: 20px;">Gender:</a></td>
@@ -125,22 +126,22 @@
                     </tr>
                     <tr>
                         <td><a style="float: left;margin-left: 20px;">Country:</a></td>
-                        <td><input id="country" type="text" placeholder="Enter Country" required></td>
+                        <td><input id="country" type="text" placeholder="Enter Country"></td>
                     </tr>
                     <tr>
                         <td><a style="float: left;margin-left: 20px;">Zip Code:</a></td>
                         <td><input id="zip" type="text" placeholder="Enter Zip Code" required></td>
-                        <td><span id="ziperror" style="color:red;"></span></td>
+                        <td><span id="z_error" style="color:red;font-family: Helvetica;"></span></td>
                     </tr>
                     <tr>
                         <td><a style="float: left;margin-left: 20px;">Password:</a></td>
                         <td><input id="pass" type="password" placeholder="Enter password" required></td>
-                        <td><span id="errorMessage" style="color:red;"></span></td>
+                        <td><span id="errorMessage" style="color:red;font-family: Helvetica;"></span></td>
                     </tr>
                     <tr>
                         <td><a style="float: left;margin-left: 20px;">Telephone:</a></td>
                         <td><input id="tel" type="tel" placeholder="Enter Telephone" required></td>
-                        <td><span id="phoneerror" style="color:red;"></span></td>
+                        <td><span id="ph_error" style="color:red;font-family: Helvetica;"></span></td>
                     </tr>
                 </table>
             </div>
@@ -161,7 +162,50 @@
             </div>
         </form>
     </center>
+    <script>
+        document.getElementById('myform').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const passvalue = document.getElementById("pass").value;
+            const phonevalue = document.getElementById("tel").value;
+            const emailvalue = document.getElementById('email').value;
+            const zipvalue = document.getElementById("zip").value;
+            const uservalue = document.getElementById("user").value
+            const u_len = /^.{4,}$/;
+            const l_reg = /^.{8,}$/;
+            const p_reg = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).+$/;
+            const ph_reg = /^\+?\d{7,}$/;
+            const z_len = /^\d{5}$/;
+            const z_reg = /^\d+$/;
+            if (!u_len.test(uservalue)) {
+                document.getElementById("u_error").innerText = "Username should be longer than 4 characters";
+                return;
+            }
+            if (!ph_reg.test(phonevalue)) {
+                document.getElementById("ph_error").innerText = "Invalid Phone Number";
+                return;
+            }
+            document.getElementById("ph_error").innerText = "";
+            if (!z_len.test(zipvalue)) {
+                document.getElementById("z_error").innerText = "Invalid Zip code(should have 5 digits)";
+                return;
+            }
+            document.getElementById("z_error").innerText = "";
+            if (!z_reg.test(zipvalue)) {
+                document.getElementById("z_error").innerText = "Zip code should only consist of numbers";
+                return;
+            }
+            document.getElementById("z_error").innerText = "";
+            if (!l_reg.test(passvalue)) {
+                document.getElementById("errorMessage").innerText = "Input must be at least 8 characters long.";
+                return;
+            }
+            if (!p_reg.test(passvalue)) {
+                document.getElementById("errorMessage").innerText = "Input must contain at least one lowercase letter, one uppercase letter, and one number.";
+                return;
+            }
+        })
 
+    </script>
 
 
 </body>
