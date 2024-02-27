@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task1</title>
     <style>
-        body
-        {
-            background-image:url(./mig2.jpg) ;
+        body {
+            background-image: url(./mig2.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             height: 100vh;
             padding: 0;
-            background-position: center center ;
-            margin: 0;;
+            background-position: center center;
+            margin: 0;
+            ;
         }
+
         .navbar {
-       
-         
+
+
             box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
 
         }
@@ -26,13 +27,13 @@
         ul {
             list-style-type: none;
             overflow: hidden;
-            
+
         }
 
         li {
             float: right;
-           margin-top: 40px;
-          padding-bottom: 10px;
+            margin-top: 40px;
+            padding-bottom: 10px;
             margin-right: 30px;
         }
 
@@ -40,67 +41,81 @@
             font-family: Helvetica, sans-serif;
             margin-left: 20px;
             margin-right: 10px;
-           
+
             color: aliceblue;
         }
 
-      
+
 
         .logo {
             float: left;
             margin-left: 20px;
             border-radius: 10px;
-        padding-bottom: 10px;
+            padding-bottom: 10px;
         }
 
-        .Hero-Section
-        {
+        .Hero-Section {
             color: aliceblue;
             font-family: Helvetica, Courier, monospace;
             font-size: xx-large;
             margin-left: 50px;
             margin-top: 200px;
         }
-      
-        
-    .buttonIn 
-    { 
-        width: 300px; 
-        position: relative; 
-        margin-left: 30px;
-        margin-top: 15px;
-    } 
-      
-    input { 
-        margin: 0px; 
-        padding: 0px; 
-        width: 500px; 
-        outline: none; 
-        height: 50px; 
-        border-radius: 5px; 
-    } 
-      
-    button { 
-        position: absolute; 
-        top: 0; 
-      
-        right: 0px; 
-        z-index: 2; 
-        border: none; 
-        top: 2px; 
-        height: 50px;
-        width: 70px; 
-        cursor: pointer; 
-        color: white; 
-        background-color: #4fc07b; 
-        transform: translateX(202px); 
-    } 
-    button::placeholder
-    {
-        font-size: large;
-        font-family:  Helvetica;
-    }
-  
+
+
+        .buttonIn {
+            width: 300px;
+            position: relative;
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        input {
+            margin: 0px;
+            padding: 0px;
+            width: 500px;
+            outline: none;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .buttonbar {
+            position: absolute;
+            top: 0;
+
+            right: 0px;
+            z-index: 2;
+            border: none;
+            top: 2px;
+            height: 50px;
+            width: 70px;
+            cursor: pointer;
+            color: white;
+            background-color: #4fc07b;
+            transform: translateX(202px);
+        }
+
+        .texts {
+            margin-left: 29px;
+        }
+
+        button::placeholder {
+            font-size: large;
+            font-family: Helvetica;
+        }
+
+        .tags {
+            margin-left: 29px;
+            margin-top: 10px;
+            font-size: medium;
+            display: inline-block;
+        }
+
+        .buttondown {
+
+            display: inline;
+            margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -111,39 +126,55 @@
         </div>
         <ul>
             <li>
-                <a style="border: 2px aliceblue;border-style: solid; padding: 4px;">Join Us</a>
+                <a href="#" style="border: 2px aliceblue;border-style: solid; padding: 4px;">Join
+                    Us</a>
             </li>
             <li>
-                <a>Sign In</a>
+                <a href="#">Sign In</a>
             </li>
             <li>
-                <a>Become Seller</a>
+                <a href="#">Become Seller</a>
             </li>
             <li>
-                <a>English</a>
+                <a href="#">English</a>
             </li>
             <li>
-                <a>Explore</a>
+                <a href="#">Explore</a>
             </li>
             <li>
-                <a>Fiverr Business</a>
+                <a href="#">Fiverr Business</a>
             </li>
         </ul>
     </div>
     <br><br>
     <div class="Hero-Section">
         <div class="texts">
-        <a>Fiverr Website clone with </a><br>
-        <a>html,css,javascript</a>
+            <a>Fiverr Website clone with </a><br>
+            <a>html,css,javascript</a>
+        </div>
+        <div class="buttonIn">
+            <input type="text" id="enter" placeholder="   Search for any Services..">
+            <button class="buttonbar" id="clear">clear</button>
+        </div>
+        <div class="tags">
+            <a>Popular:</a>
+            <div class="buttondown">
+                <button
+                    style="border-radius: 16px;background-color: transparent;color: aliceblue;border-color: aliceblue;padding: 3px;margin-left: 5px;">Website
+                    Design</button>
+                <button
+                    style="border-radius: 16px;background-color: transparent;color: aliceblue;border-color: aliceblue;padding: 3px;margin-left: 5px;">Logo
+                    Design</button>
+                <button
+                    style="border-radius: 16px;background-color: transparent;color: aliceblue;border-color: aliceblue;padding: 3px;margin-left: 5px;">Word
+                    Press</button>
+                <button
+                    style="border-radius: 16px;background-color: transparent;color: aliceblue;border-color: aliceblue;padding: 3px;margin-left: 5px;">AI
+                    Design</button>
+            </div>
+        </div>
+
     </div>
-    <div class="buttonIn"> 
-        <input type="text" id="enter" placeholder="   Search for any Services.."> 
-        <button id="clear">clear</button> 
-    </div> 
-    <div>
-        <a>Popular:</a>
-    </div>
-</div>
 </body>
 
 </html>
