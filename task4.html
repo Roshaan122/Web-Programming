@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #game {
+      margin-top: 50px;
+    }
+
+    .hand-image {
+      width: 100px;
+      cursor: pointer;
+    }
+
+    .shake {
+      animation: shake 0.5s;
+      display: inline-block;
+    }
+
+    #result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    span {
+      margin-left: 40px;
+    }
+
+    @keyframes shake {
+
+      10%,
+      90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+
+      20%,
+      80% {
+        transform: translate3d(2px, 0, 0);
+      }
+
+      30%,
+      50%,
+      70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+
+      40%,
+      60% {
+        transform: translate3d(4px, 0, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="game">
+    <img id="rock" class="hand-image" src="./R.png" alt="Rock">
+    <img id="paper" class="hand-image" src="./paper_image.png" alt="Paper">
+    <img id="scissors" class="hand-image" src="./scizzors.png" alt="Scissors">
+    <br>
+    <span> ROCK </span>
+    <span> PAPER </span>
+    <span> SCISSORS </span>
+    <div id="choices">
+      <div id="user-choice"></div>
+      <div id="computer-choice"></div>
+    </div>
+    <div id="result"></div>
+    <div id="score">Score - You: 0 Computer: 0</div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const choices = ['rock', 'paper', 'scissors'];
+      const choiceImages = {
+        'rock': 'R.png',
+        'paper': 'paper_image.png',
+        'scissors': 'scizzors.png'
+      };
+      let userScore = 0;
+      let computerScore = 0;
+
+      function updateScore() {
+        $('#score').text(`Score - You: ${userScore} Computer: ${computerScore}`);
+      }
+
+      function getComputerChoice() {
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
+      }
+
+      function determineWinner(userChoice, computerChoice) {
+        if (userChoice === computerChoice) {
+          return 'It\'s a tie!';
+        }
+        if ((userChoice === 'rock' && computerChoice === 'scissors') ||
+          (userChoice === 'paper' && computerChoice === 'rock') ||
+          (userChoice === 'scissors' && computerChoice === 'paper')) {
+          userScore++;
+          return 'You win!';
+        } else {
+          computerScore++;
+          return 'You lose!';
+        }
+      }
+
+      function playGame(userChoice) {
+        const computerChoice = getComputerChoice();
+        $('#user-choice').html(`<img class="shake" src="${choiceImages[userChoice]}" alt="${userChoice}"height="100px" width="100px" >`);
+        $('#computer-choice').html(`<img class="shake" src="${choiceImages[computerChoice]}" alt="${computerChoice}" height="100px" width="100px">`);
+        setTimeout(function () {
+          const result = determineWinner(userChoice, computerChoice);
+          $('#result').text(`You chose ${userChoice}, computer chose ${computerChoice}. ${result}`);
+          updateScore();
+          $('.hand-image').show(); // Show all hand images again for the next round
+        }, 500);
+      }
+
+      $('.hand-image').click(function () {
+        const userChoice = this.id;
+        $('.hand-image').hide(); // Hide all hand images
+        playGame(userChoice);
+      });
+
+      updateScore(); // Initialize the score display
+    });
+  </script>
+</body>
+
+</html>
