@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        /* Basic styling for the app */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #search-input {
+            width: 200px;
+            padding: 10px;
+        }
+
+        #weather-info {
+            margin-top: 20px;
+        }
+
+        .weatherappdata {
+            padding: 3px;
+            background-color: rgb(111, 165, 147);
+            margin-top: 10px;
+            width: 300px;
+            color: azure;
+            margin-left: 43%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Weather App</h1>
+    <input type="text" id="search-input" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weather-info"></div>
+
+    <script>
+        function getWeather() {
+            const city = document.getElementById('search-input').value;
+            const apiKey = 'd317ad176c04ac810b99e92d9f0e2f64'; // Replace with your actual API key
+            const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const weatherInfo = document.getElementById('weather-info');
+
+                    weatherInfo.innerHTML = '<h2>5-Day Weather Forecast</h2>';
+                    data.list.forEach(weather => {
+
+                        const dateTime = new Date(weather.dt_txt);
+                        weatherInfo.innerHTML += `
+                            <div class="weatherappdata" width="100px">
+                                
+                                <p>Date/Time: ${dateTime.toLocaleString()}</p>
+                                <p>Temperature: ${weather.main.temp}°C</p>
+                                <p>Weather: ${weather.weather[0].description}</p>
+                               
+                               
+                            </div>
+                        `;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    const weatherInfo = document.getElementById('weather-info');
+                    weatherInfo.innerHTML = '<p>Failed to fetch weather data. Please try again later.</p>';
+                });
+        }
+    </script>
+</body>
+
+</html>
